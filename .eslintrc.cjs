@@ -2,20 +2,24 @@
 const config = {
   parser: "@typescript-eslint/parser",
   parserOptions: {
-    project: true,
+    project: "./tsconfig.json",
   },
-  plugins: ["@typescript-eslint"],
+  settings: {
+    react: {
+      version: "detect", // Tells eslint-plugin-react to automatically detect the version of React to use
+    },
+  },
+  plugins: ["@typescript-eslint", "drizzle", "perfectionist"],
   extends: [
     "next/core-web-vitals",
     "plugin:@typescript-eslint/recommended-type-checked",
     "plugin:@typescript-eslint/stylistic-type-checked",
+    "plugin:perfectionist/recommended-alphabetical",
+    "prettier",
   ],
   rules: {
-    // These opinionated rules are enabled in stylistic-type-checked above.
-    // Feel free to reconfigure them to your own preference.
     "@typescript-eslint/array-type": "off",
     "@typescript-eslint/consistent-type-definitions": "off",
-
     "@typescript-eslint/consistent-type-imports": [
       "warn",
       {
@@ -23,13 +27,34 @@ const config = {
         fixStyle: "inline-type-imports",
       },
     ],
-    "@typescript-eslint/no-unused-vars": ["warn", { argsIgnorePattern: "^_" }],
-    "@typescript-eslint/no-misused-promises": [
-      2,
+    "@typescript-eslint/no-unused-vars": [
+      "warn",
       {
-        checksVoidReturn: { attributes: false },
+        argsIgnorePattern: "^_",
       },
     ],
+    "@typescript-eslint/require-await": "off",
+    "@typescript-eslint/no-misused-promises": [
+      "error",
+      {
+        checksVoidReturn: {
+          attributes: false,
+        },
+      },
+    ],
+    "drizzle/enforce-delete-with-where": [
+      "error",
+      {
+        drizzleObjectName: ["db", "ctx.db"],
+      },
+    ],
+    "drizzle/enforce-update-with-where": [
+      "error",
+      {
+        drizzleObjectName: ["db", "ctx.db"],
+      },
+    ],
+    "@typescript-eslint/no-unsafe-assignment": "off",
   },
 };
 

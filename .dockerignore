@@ -1,0 +1,33 @@
+# add git-ignore syntax here of things you don't want copied into docker image
+
+.git
+.results
+.vscode
+.env\*
+.dockerignore
+.gitignore
+.drizzle
+\*.md
+.next
+.eslintrc.cjs
+.env\*
+ci
+e2e
+node_modules
+playwright-report
+test
+test-results
+compose.yml
+\*Dockerfile\*
+local.db
+pipeline-auth.yml
+Dockerfile
+README.md
+playwright.config.ts
+prettier.config.js
+seed.sql
+tsconfig.tsbuildinfo
+
+<!-- SRC -->
+
+src/server/db/seeds/data

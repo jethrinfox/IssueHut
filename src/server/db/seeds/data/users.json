@@ -1,0 +1,20 @@
+[
+  {
+    "id": "7ptyieljjfv2ayy5",
+    "username": "admin",
+    "password": "$argon2id$v=19$m=19456,t=2,p=1$KoPSZAspdYhHtRPDHb2AgQ$X7c60cWVR9EJOCAAGi9EiFpVKoWCt4SuD6u7j6kMd5Q",
+    "isAdmin": true
+  },
+  {
+    "id": "7ptyieljjfv2ayi2",
+    "username": "lider",
+    "password": "$argon2id$v=19$m=19456,t=2,p=1$KoPSZAspdYhHtRPDHb2AgQ$X7c60cWVR9EJOCAAGi9EiFpVKoWCt4SuD6u7j6kMd5Q",
+    "isAdmin": false
+  },
+  {
+    "id": "7ptyieljjfv2ayi3",
+    "username": "user",
+    "password": "$argon2id$v=19$m=19456,t=2,p=1$KoPSZAspdYhHtRPDHb2AgQ$X7c60cWVR9EJOCAAGi9EiFpVKoWCt4SuD6u7j6kMd5Q",
+    "isAdmin": false
+  }
+]
