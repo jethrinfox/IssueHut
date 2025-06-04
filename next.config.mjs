@@ -13,7 +13,7 @@ const withBundleAnalyzer = nextAnalizer({
 const config = {
   reactStrictMode: true,
   output: "standalone",
-  turbopack: {},
+  // turbopack: {},
   productionBrowserSourceMaps: true,
   compiler: {
     // removeConsole: process.env.NODE_ENV === "production",
@@ -27,4 +27,4 @@ const config = {
   },
 };
 
-export default withBundleAnalyzer(config);
+export default config;
