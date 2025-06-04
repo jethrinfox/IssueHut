@@ -55,6 +55,7 @@ const AddListSheet: FC<AddListSheetProps> = ({
       },
     );
     form.reset();
+    onClose();
   };
 
   return (

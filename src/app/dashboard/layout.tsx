@@ -11,9 +11,7 @@ import {
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { cn } from "@/lib/utils";
 import redirectAuth from "@/utils/auth/redirectAuth";
-import validateIsAdmin from "@/utils/auth/validateIsAdmin";
 import { AreaChart, CircleUser, FormInputIcon, Home, Menu } from "lucide-react";
-import Image from "next/image";
 import Link from "next/link";
 import { connection } from "next/server";
 import { type FC, type PropsWithChildren } from "react";
@@ -73,8 +71,6 @@ export default async function DashboardLayout({
   await connection();
   await redirectAuth();
 
-  const isAdmin = await validateIsAdmin();
-
   return (
     <div className="grid min-h-screen w-full md:grid-cols-[200px_1fr] lg:grid-cols-[220px_1fr]">
       <div className="hidden border-r bg-muted/40 md:block">
@@ -87,21 +83,7 @@ export default async function DashboardLayout({
           <div className="flex-1">
             <nav className="grid items-start px-2 text-sm font-medium lg:px-4">
               <LinkButton href="/dashboard" Icon={Home}>
-                Dashboard
-              </LinkButton>
-              <LinkButton href="/dashboard/areas" Icon={AreaChart}>
-                Areas
-              </LinkButton>
-              <NavItem Icon={FormInputIcon}>Formularios</NavItem>
-              <LinkButton href={`/dashboard/formularios/personas`}>
-                Personas
-              </LinkButton>
-              <LinkButton href={`/dashboard/formularios/area`}>Area</LinkButton>
-              <LinkButton href={`/dashboard/formularios/evaluaciones`}>
-                Evaluaciones
-              </LinkButton>
-              <LinkButton href={`/dashboard/formularios/servidores`}>
-                Servidores
+                Projects
               </LinkButton>
             </nav>
           </div>
@@ -123,32 +105,7 @@ export default async function DashboardLayout({
             <SheetContent className="flex flex-col" side="left">
               <nav className="grid gap-2 text-lg font-medium">
                 <LinkButton href="/dashboard" Icon={Home} isMobile>
-                  Dashboard
-                </LinkButton>
-                <LinkButton href="/dashboard/areas" Icon={AreaChart} isMobile>
-                  Areas
-                </LinkButton>
-                <LinkButton
-                  href="/dashboard/formularios"
-                  Icon={FormInputIcon}
-                  isMobile
-                >
-                  Formularios
-                </LinkButton>
-                <LinkButton href={`/dashboard/formularios/personas`} isMobile>
-                  Personas
-                </LinkButton>
-                <LinkButton href={`/dashboard/formularios/area`} isMobile>
-                  Area
-                </LinkButton>
-                <LinkButton
-                  href={`/dashboard/formularios/evaluaciones`}
-                  isMobile
-                >
-                  Evaluaciones
-                </LinkButton>
-                <LinkButton href={`/dashboard/formularios/servidores`} isMobile>
-                  Servidores
+                  Projects
                 </LinkButton>
               </nav>
             </SheetContent>
@@ -158,20 +115,20 @@ export default async function DashboardLayout({
             <DropdownMenuTrigger asChild>
               <Button className="rounded-full" size="icon" variant="secondary">
                 <CircleUser className="h-5 w-5" />
-                <span className="sr-only">Abrir menu de usuario</span>
+                <span className="sr-only">Open user menu</span>
               </Button>
             </DropdownMenuTrigger>
             <DropdownMenuContent align="end">
-              <DropdownMenuLabel>Mi Perfil</DropdownMenuLabel>
+              <DropdownMenuLabel>Profile</DropdownMenuLabel>
               <DropdownMenuSeparator />
               <Link href="/dashboard/perfil/cambiar-contrasena">
-                <DropdownMenuItem>Cambiar Contraseña</DropdownMenuItem>
+                <DropdownMenuItem>Change Password</DropdownMenuItem>
               </Link>
               <DropdownMenuSeparator />
-              <DropdownMenuItem>Soporte</DropdownMenuItem>
+              <DropdownMenuItem>Support</DropdownMenuItem>
               <DropdownMenuSeparator />
               <Link href="/auth/signout">
-                <DropdownMenuItem>Cerrar Sesión</DropdownMenuItem>
+                <DropdownMenuItem>Logout</DropdownMenuItem>
               </Link>
             </DropdownMenuContent>
           </DropdownMenu>
